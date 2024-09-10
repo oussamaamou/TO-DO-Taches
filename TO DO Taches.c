@@ -59,10 +59,8 @@ int main(){
                     scanf(" %[^\n]%*c",&Taches[NbrTache].Titre);
                     printf("Veuillez entrer la description de la tache :");
                     scanf(" %[^\n]%*c",&Taches[NbrTache].Description);
-                    printf("Veuillez entrer l'identifiant de la tache :");
-                    scanf("%d",&Taches[NbrTache].Identifiant);
-                    printf("Veuillez entrer le status de la tache:");
-                    printf(" --1-- <a realiser> // --2-- <en cours de realisation> // --3-- <finalisee> //\n");
+                    printf("Veuillez entrer le status de la tache:\n");
+                    printf(" --1-- <a realiser> // --2-- <en cours de realisation> // --3-- <finalisee> \n");
                     scanf("\t%d",&Fcts);
                     switch(Fcts){
                         case 1:
@@ -85,6 +83,7 @@ int main(){
                     scanf("%d",&Date[NbrTache].Mois);
                     printf("Veuillez entrer l'annee :");
                     scanf("%d",&Date[NbrTache].Annee);
+                    Taches[NbrTache].Identifiant = NbrTache + 1;
                     NbrTache ++;
                     printf("\t La tache a ete ajouter avec succes.\n");
                 break;
@@ -98,10 +97,8 @@ int main(){
                         scanf(" %[^\n]%*c",&Taches[i].Titre);
                         printf("Veuillez entrer la description de la tache :");
                         scanf(" %[^\n]%*c",&Taches[i].Description);
-                        printf("Veuillez entrer l'identifiant de la tache :");
-                        scanf("%d",&Taches[i].Identifiant);
-                        printf("Veuillez entrer le status de la tache:");
-                        printf(" --1-- <a realiser> // --2-- <en cours de realisation> // --3-- <finalisee> //\n");
+                        printf("Veuillez entrer le status de la tache:\n");
+                        printf(" --1-- <a realiser> // --2-- <en cours de realisation> // --3-- <finalisee> \n");
                         scanf("\t%d",&Fcts);
                         switch(Fcts){
                         case 1:
@@ -124,6 +121,7 @@ int main(){
                         scanf("%d",&Date[i].Mois);
                         printf("Veuillez entrer l'annee :");
                         scanf("%d",&Date[i].Annee);
+                        Taches[i].Identifiant = NbrTache + 1;
                         NbrTache ++;
                         printf("\t Les taches ont ete ajouter avec succes.\n"); 
                     
@@ -140,8 +138,8 @@ int main(){
                     //Dans le cas ou il n'y a pas de taches.//
                     printf("Aucune taches n'existent !! \n");
                     }
-                    //Boucle pour Afficher les taches dans un ordre alphabetique.//
-                    
+                   
+                    //Boucle pour Afficher les taches dans un ordre alphabetique.//                 
                         for(i=0;i<NbrTache - 1;i++)
                             for (j=i;j<NbrTache;j++){
                                 if(strcmp(Taches[j].Titre,Taches[i].Titre)< 0){
@@ -149,8 +147,7 @@ int main(){
                                     Taches[i] = Taches[j];
                                     Taches[j] = Chng ;
                                 }
-                            }
-                                        
+                            }                                      
                         //L'Affichage des taches.//
                         for (int i = 0; i < NbrTache; i++) {
                             printf("Le Titre: %s\n", Taches[i].Titre);
@@ -173,7 +170,7 @@ int main(){
                     if(strcmp(Taches[i].Titre,Titre)==0){
                         printf("Entrer la nouvelle description : ");
                         scanf(" %[^\n]%*c",&Taches[i].Description);
-                        printf("Entrer le nouveau statut : ");
+                        printf("Entrer le nouveau statut :\n ");
                         printf(" --1-- <a realiser> // --2-- <en cours de realisation> // --3-- <finalisee> //\n");
                         scanf("\t%d",&Fcts);
                         switch(Fcts){
