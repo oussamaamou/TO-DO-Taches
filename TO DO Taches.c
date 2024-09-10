@@ -125,7 +125,7 @@ int main(){
                         printf("Veuillez entrer l'annee :");
                         scanf("%d",&Date[i].Annee);
                         NbrTache ++;
-                        printf("\t La tache a ete ajouter avec succes.\n"); 
+                        printf("\t Les taches ont ete ajouter avec succes.\n"); 
                     
                     }
                 break;
