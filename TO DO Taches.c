@@ -22,7 +22,7 @@ Deadline Date[100];
 Tache Taches[100];
 
 int main(){
-    
+    char Chng[50];
     char Status[20];
     int Identifiant;
     char Titre[50];
@@ -126,6 +126,7 @@ int main(){
                         scanf("%d",&Date[i].Annee);
                         NbrTache ++;
                         printf("\t La tache a ete ajouter avec succes.\n"); 
+                    
                     }
                 break;
                 }
@@ -140,26 +141,26 @@ int main(){
                     printf("Aucune taches n'existent !! \n");
                     }
                     //Boucle pour Afficher les taches dans un ordre alphabetique.//
-                        for(i=0;i<NbrTache - 1;i++){
-                            for (j=i+1;j<NbrTache ;j++){
-                                if(Taches[j].Titre<Taches[i].Titre){
-                                    Tache temp = Taches[i];
+                    
+                        for(i=0;i<NbrTache - 1;i++)
+                            for (j=i;j<NbrTache;j++){
+                                if(strcmp(Taches[j].Titre,Taches[i].Titre)< 0){
+                                    Tache Chng  = Taches[i];
                                     Taches[i] = Taches[j];
-                                    Taches[j] = temp;
+                                    Taches[j] = Chng ;
                                 }
                             }
-                    }    
+                                        
+                        //L'Affichage des taches.//
+                        for (int i = 0; i < NbrTache; i++) {
+                            printf("Le Titre: %s\n", Taches[i].Titre);
+                            printf("La Description: %s\n", Taches[i].Description);
+                            printf("L'Identifiant: %d\n", Taches[i].Identifiant);
+                            printf("Le Status: %s\n",Stts);    
+                            printf("La Date: %d - %d - %d\n", Date[i].Jour,Date[i].Mois,Date[i].Annee);                     
+                            printf("---------------------------------------------------------------------------------------\n");
+                        }
                     
-                    //L'Affichage des taches.//
-                     for (int i = 0; i < NbrTache; i++) {
-                        printf("Le Titre: %s\n", Taches[i].Titre);
-                        printf("La Description: %s\n", Taches[i].Description);
-                        printf("L'Identifiant: %d\n", Taches[i].Identifiant);
-                        printf("Le Status: %s\n",Stts);    
-                        printf("La Date: %d - %d - %d\n", Date[i].Jour,Date[i].Mois,Date[i].Annee);                     
-                        printf("---------------------------------------------------------------------------------------\n");
-                    }
-                
             break;
             
             
@@ -284,28 +285,10 @@ int main(){
             
                       
             case 6:
-                
-                for(i=0;i<NbrTache;i++){
-                    NbrTache += Taches[i].Identifiant;
-                }
+                           
                 printf("Le nombre totale des taches est : %d \n",NbrTache);
                 break;
 
-                for(i=0;i<NbrTache;i++){
-                    if(strcmp(Taches[i].Status,"a realiser")==0){
-                        NbrTache += Taches[i].Identifiant;
-                    }
-                }
-                printf("Le nombre totale des taches incomplètes est : %d \n",NbrTache);
-                break;
-
-                for(i=0;i<NbrTache;i++){
-                    if(strcmp(Taches[i].Status,"finalisee")==0){
-                        NbrTache += Taches[i].Identifiant;
-                    }
-                }
-                printf("Le nombre totale des taches complètes est : %d \n",NbrTache);
-                break;
                 
             break;
             
